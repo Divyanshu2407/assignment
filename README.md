@@ -13,7 +13,7 @@ A minimal React + Tiptap prototype for a paginated legal document editor.
 2. `npm start`
 
 ## Constraints & Trade-offs
-- Constraints: Tiptap free lacks native auto-pagination, so custom logic used for height check; dynamic page numbers require manual counting; no thumbnails as in Figma (bonus not fully implemented due to time).
+- Constraints: Tiptap free lacks native auto-pagination, so custom logic used for height check; dynamic page numbers require manual counting; no thumbnails as in Figma .
 - Trade-offs: Plain CSS used instead of Tailwind (failed due to PostCSS issues) for reliability; static design matches Figma direction but not pixel-perfect; auto-break uses height proxy (trade-off for accuracy vs performance).
 - Vulnerabilities: 9 issues ignored for deadline; trade-off for functionality over security in prototype.
 
