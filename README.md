@@ -1,4 +1,4 @@
-# Tiptap Pagination POC
+# Tiptap Pagination Assignment
 
 A minimal React + Tiptap prototype for a paginated legal document editor.
 
