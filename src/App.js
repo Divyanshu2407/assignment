@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback, forwardRef } from 'rea
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { Node } from '@tiptap/core';
+import { FaFileAlt, FaGlobe, FaLanguage, FaRegEdit, FaBookmark, FaHistory, FaPaperPlane } from "react-icons/fa";
 
 // Custom PageBreak node for manual and automatic breaks
 const PageBreak = Node.create({
@@ -184,14 +185,50 @@ const App = () => {
   return (
     <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f0f0f0', fontFamily: 'Arial, sans-serif' }}>
       {/* Sidebar refined for Figma match */}
-      <div style={{ width: '250px', backgroundColor: '#6b21a8', color: 'white', padding: '16px', boxShadow: '2px 0 4px rgba(0, 0, 0, 0.1)' }}>
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px' }}>Chat History</h2>
-        <ul style={{ listStyle: 'none', padding: '0' }}>
+      {/* <div style={{ width: '250px', backgroundColor: '#6b21a8', color: 'white', padding: '16px', boxShadow: '4px 0 4px rgba(0, 0, 0, 0.1)' }}>
+        <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '12px' }}>AI</h2>
+        <button style ={{width: "250px", backgroundColor: "red", color: "white", padding: "10px 20px", border:"round", borderRadius: "5px" }}>New Chat </button>
+        <ul style={{ listStyle: 'none', padding: '4px' }}>
           <li style={{ margin: '8px 0', padding: '4px', backgroundColor: '#5b1a98', borderRadius: '4px' }}>Lorem ipsum...</li>
           <li style={{ margin: '8px 0', padding: '4px', backgroundColor: '#5b1a98', borderRadius: '4px' }}>Consectetur...</li>
           <li style={{ margin: '8px 0', padding: '4px', backgroundColor: '#5b1a98', borderRadius: '4px' }}>View more</li>
         </ul>
+      </div> */}
+
+    <div className="sidebar">
+      {/* Logo */}
+      <h2 className="logo">Vettam.AI</h2>
+
+      {/* New Chat Button */}
+      <button className="newChatBtn">New Chat</button>
+
+      {/* Features */}
+      <div className="section">
+        <span className="sectionLabel">Features</span>
+        <div className="menuItem"><FaFileAlt /> Workspace</div>
+        <div className="menuItem"><FaGlobe /> Research</div>
+        <div className="menuItem"><FaLanguage /> Translate</div>
+        <div className="menuItem"><FaRegEdit /> Write</div>
       </div>
+
+      {/* Tools */}
+      <div className="section">
+        <span className="sectionLabel">Tools</span>
+        <div className="menuItem highlight"><FaRegEdit /> Editor</div>
+        <div className="menuItem"><FaBookmark /> Bookmarks</div>
+      </div>
+
+      {/* Chat History */}
+      <div className="section">
+        <div className="chatHistory"><FaHistory /> Chat History</div>
+        <div className="chatItem">Lorem ipsum dolor sit amet consectetur.</div>
+        <div className="chatItem">Lorem ipsum dolor sit amet consectetur.</div>
+        <div className="chatItem">Lorem ipsum dolor sit amet consectetur.</div>
+        <a href="#" className="viewMore">View more</a>
+      </div>
+    </div>
+
+
       {/* Main content area with editor and thumbnails */}
       <div style={{ flex: '1 1 auto', display: 'flex', padding: '24px', overflowY: 'auto' }}>
         <div style={{ flex: '1 1 auto', paddingRight: '16px' }}>
@@ -200,22 +237,75 @@ const App = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid #eee', paddingBottom: '8px' }}>
               <h1 style={{ fontSize: '24px', fontWeight: '600', color: '#333' }}>Document Name.docx</h1>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button style={{ backgroundColor: '#e9ecef', padding: '6px 12px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>Header & Footer</button>
-                <button style={{ backgroundColor: '#e9ecef', padding: '6px 12px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>Margin</button>
-                <button style={{ backgroundColor: '#e9ecef', padding: '6px 12px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>Rulers</button>
+                <button style={{ backgroundColor: '#e9ecef', padding: '6px 12px', borderRadius: '2px', border: 'round', cursor: 'pointer' }}>Header & Footer</button>
+                <button style={{ backgroundColor: '#e9ecef', padding: '6px 12px', borderRadius: '2px', border: 'round', cursor: 'pointer' }}>Margin</button>
+                <button style={{ backgroundColor: '#e9ecef', padding: '6px 12px', borderRadius: '2px', border: 'round', cursor: 'pointer' }}>Rulers</button>
               </div>
             </div>
             <CustomEditor ref={insertBreakRef} />
           </div>
         </div>
+
+
+
         {/* Thumbnail bonus on the right */}
-        <div style={{ width: '150px', backgroundColor: '#f5f5f5', padding: '16px' }}>
-          <h2 style={{ fontSize: '16px', fontWeight: 'bold' }}>Thumbnails</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <div style={{ height: '100px', width: '70px', backgroundColor: '#ddd', borderRadius: '4px' }}>Page 1</div>
-            <div style={{ height: '100px', width: '70px', backgroundColor: '#ddd', borderRadius: '4px' }}>Page 2</div>
+
+
+    <div className="pdfPreviewContainer">
+      {/* Tabs */}
+      <div className="tabs">
+        <span className="tab active">Thumbnail</span>
+        <span className="tab">Index</span>
+        <span className="tab">Search</span>
+      </div>
+
+      {/* Thumbnails */}
+      <div className="thumbnails">
+        <div className="thumbnailPage">
+          <div className="pdfBox">
+            <h3>PDF</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
           </div>
         </div>
+
+        <div className="thumbnailPage">
+          <div className="pdfBox">
+            <h3>PDF</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          </div>
+        </div>
+
+        <div className="thumbnailPage">
+          <div className="pdfBox">
+            <h3>PDF</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          </div>
+        </div>
+      </div>
+
+      <form className="askBox">
+        <input type="text" placeholder = "Ask Vettam..." />
+        <button className="sendBtn" type = "submit"><FaPaperPlane/></button>
+      </form>
+
+
+    </div>
+
       </div>
     </div>
   );
